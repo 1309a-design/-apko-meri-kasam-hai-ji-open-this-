@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Annuuu Darling - Interactive Apology</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #fceabb, #f8b500);
+      color: #333;
+      text-align: center;
+      padding: 50px;
+    }
+    .section {
+      display: none;
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+    .active {
+      display: block;
+    }
+    h1 {
+      color: #e63946;
+      font-size: 36px;
+    }
+    h2 {
+      color: #555;
+      font-size: 22px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .yes { background-color: #38b000; color: white; }
+    .no { background-color: #d00000; color: white; }
+    .next { background-color: #555; color: white; }
+    .signature {
+      margin-top: 30px;
+      font-style: italic;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1: Love Question -->
+  <div id="page1" class="section active">
+    <h1>Do You Love Me?</h1>
+    <button class="yes" onclick="showPage('yes')">Yes</button>
+    <button class="no" onclick="showPage('no')">No</button>
+  </div>
+
+  <!-- Page 2A: Yes Response -->
+  <div id="pageYes" class="section">
+    <h1>I knew it — you love me! 💚</h1>
+    <button class="next" onclick="showPage('apology')">Next</button>
+  </div>
+
+  <!-- Page 2B: No Response -->
+  <div id="pageNo" class="section">
+    <h1>I think I’m not that bad 😢</h1>
+    <p>Let me show you something...</p>
+    <button class="next" onclick="showPage('apology')">Okay</button>
+  </div>
+
+  <!-- Page 3: Apology -->
+  <div id="pageApology" class="section">
+    <h1>I'm Sorry</h1>
+    <h2>Annuuu Darling</h2>
+    <p>
+      Dear Annuuu Darling,<br><br>
+      I am truly sorry for my misbehavior.  
+      I realize my actions hurt you, and I deeply regret them.  
+      Please forgive me — I promise to be better and more respectful.  
+    </p>
+    <p class="signature">— Yours sincerely</p>
+  </div>
+
+  <script>
+    function showPage(choice) {
+      document.querySelectorAll('.section').forEach(div => div.classList.remove('active'));
+      if (choice === 'yes') {
+        document.getElementById('pageYes').classList.add('active');
+      } else if (choice === 'no') {
+        document.getElementById('pageNo').classList.add('active');
+      } else if (choice === 'apology') {
+        document.getElementById('pageApology').classList.add('active');
+      }
+    }
+  </script>
+
+</body>
+</html>
